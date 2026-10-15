@@ -1,0 +1,31 @@
+{
+  "generated_at_utc": "2026-10-15T15:48:52.488999+00:00",
+  "protocol": "same fixed public model, seed, greedy inputs and hardware; new model process",
+  "records_per_run": [
+    64,
+    64
+  ],
+  "comparison_fields": [
+    "id",
+    "mode",
+    "output",
+    "tokens",
+    "completed",
+    "json_valid",
+    "schema_valid",
+    "argument_exact",
+    "content_argument_exact",
+    "whole_markdown_fence",
+    "schema_sha256",
+    "prompt_sha256",
+    "prompt_tokens_sha256",
+    "prompt_token_count"
+  ],
+  "original_records_sha256": "f96ee483a044c37f8cb2c284fcc0e0dbae9ae9e29bd157670c20f1613c52c848",
+  "replay_records_sha256": "ec7a5e33d291460efdc19c55f501b395ed63a82d159776d07b7dfa0dcd739b31",
+  "timings_expected_to_differ": true,
+  "all_deterministic_fields_equal": true,
+  "mismatches": [],
+  "both_runs_independently_validated": true,
+  "limits": "not a cross-machine, cross-dtype or freshly rebuilt dependency environment guarantee"
+}

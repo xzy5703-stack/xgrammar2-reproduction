@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-10-15T15:50:42.465296+00:00",
+  "scope": "independent offline audit of fixed provenance, paired model generation, CPU cache benchmark and requested notebook",
+  "experiment_runners_imported": false,
+  "network_used": false,
+  "self_test_only": false,
+  "notebook_checked": true,
+  "checks": 27167,
+  "passed_checks": 27167,
+  "all_passed": true,
+  "sections": {
+    "independent_checker_self_tests": {
+      "checks": 19,
+      "passed": 19,
+      "failures": []
+    },
+    "pinned_provenance": {
+      "checks": 542,
+      "passed": 542,
+      "failures": []
+    },
+    "paired_generation": {
+      "checks": 1374,
+      "passed": 1374,
+      "failures": []
+    },
+    "cache_benchmark": {
+      "checks": 25218,
+      "passed": 25218,
+      "failures": []
+    },
+    "executed_notebook": {
+      "checks": 14,
+      "passed": 14,
+      "failures": []
+    }
+  }
+}

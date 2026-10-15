@@ -1,0 +1,81 @@
+{
+  "experiment": "paired_local_json_tool_call",
+  "official_bfcl_score": false,
+  "sample_rule": "first N records of pinned BFCL-v3 simple file, no outcome filtering",
+  "ids": [
+    "simple_0",
+    "simple_1",
+    "simple_2",
+    "simple_3",
+    "simple_4",
+    "simple_5",
+    "simple_6",
+    "simple_7",
+    "simple_8",
+    "simple_9",
+    "simple_10",
+    "simple_11",
+    "simple_12",
+    "simple_13",
+    "simple_14",
+    "simple_15",
+    "simple_16",
+    "simple_17",
+    "simple_18",
+    "simple_19",
+    "simple_20",
+    "simple_21",
+    "simple_22",
+    "simple_23",
+    "simple_24",
+    "simple_25",
+    "simple_26",
+    "simple_27",
+    "simple_28",
+    "simple_29",
+    "simple_30",
+    "simple_31"
+  ],
+  "max_new_tokens": 192,
+  "seed": 20261015,
+  "do_sample": false,
+  "thinking": false,
+  "device": "mps",
+  "dtype": "torch.float16",
+  "platform": "macOS-27.2-arm64-arm-64bit",
+  "packages": {
+    "torch": "2.14.1",
+    "xgrammar": "0.2.0",
+    "transformers": "4.57.6",
+    "jsonschema": "4.26.0"
+  },
+  "hf_adapter_change": "Official v0.2.0 HF initialization; subsequent batch-size-one transitions use Python int token ID, CPU masks and MPS scores. Author matcher and mask kernels unchanged; current TVM FFI rejects torch scalar IDs.",
+  "metrics": {
+    "unconstrained": {
+      "n": 32,
+      "completed": 32,
+      "json_valid": 0,
+      "schema_valid": 0,
+      "argument_exact": 0,
+      "content_argument_exact": 27,
+      "total_tokens": 1310,
+      "total_seconds": 30.064402626012452
+    },
+    "xgrammar": {
+      "n": 32,
+      "completed": 32,
+      "json_valid": 32,
+      "schema_valid": 32,
+      "argument_exact": 27,
+      "content_argument_exact": 27,
+      "total_tokens": 1208,
+      "total_seconds": 29.228793706992292
+    }
+  },
+  "timing_scope": "includes CPU mask and MPS transfers; not serving throughput",
+  "metric_definitions": {
+    "argument_exact": "Strict complete JSON-schema-compliant tool call with all acceptable reference argument values; invalid format counts as failure",
+    "content_argument_exact": "Supplementary semantic diagnostic; permits stripping only a single whole-output Markdown JSON fence. This is not strict format compliance or an official BFCL score",
+    "schema_valid": "Strict original output is JSON and passes independent JSON Schema; completion reported separately"
+  }
+}
