@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "dataset": "BFCL v3 simple (Python, single function)",
+  "source_repository": "https://github.com/ShishirPatil/gorilla",
+  "source_revision": "cd9429ccf3d4d04156affe883c495b3b047e6b64",
+  "source_revision_date": "2025-08-06T23:50:01Z",
+  "selection_reason": "Last V3 repository snapshot immediately preceding the V4 rename commit 58f57e9124ea981403792dd51e00a6577e621fae; current repository head uses V4 names.",
+  "observed_current_head": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+  "observed_current_head_date": "2026-03-23T11:40:47Z",
+  "retrieved_at_utc": "2026-10-15T15:20:39.570323+00:00",
+  "license": {
+    "spdx": "Apache-2.0",
+    "repository_license_url": "https://github.com/ShishirPatil/gorilla/blob/cd9429ccf3d4d04156affe883c495b3b047e6b64/LICENSE",
+    "author_dataset_card_url": "https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard",
+    "redistribution": "Author dataset card specifies Apache-2.0; preserve license and attribution if redistributing. This project will publish the pinned downloader and hashes, not the downloaded data."
+  },
+  "files": [
+    {
+      "local_path": "inputs/bfcl_simple.jsonl",
+      "source_path": "berkeley-function-call-leaderboard/bfcl_eval/data/BFCL_v3_simple.json",
+      "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/cd9429ccf3d4d04156affe883c495b3b047e6b64/berkeley-function-call-leaderboard/bfcl_eval/data/BFCL_v3_simple.json",
+      "github_blob_sha1": "927611976758b084570299cbda641199b9368765",
+      "sha256": "fbc37b2ad252bf9af985582e0e07b456173fe627d957491472ea9cef5fb83158",
+      "bytes": 280474,
+      "rows": 400
+    },
+    {
+      "local_path": "inputs/bfcl_simple_answer.jsonl",
+      "source_path": "berkeley-function-call-leaderboard/bfcl_eval/data/possible_answer/BFCL_v3_simple.json",
+      "url": "https://raw.githubusercontent.com/ShishirPatil/gorilla/cd9429ccf3d4d04156affe883c495b3b047e6b64/berkeley-function-call-leaderboard/bfcl_eval/data/possible_answer/BFCL_v3_simple.json",
+      "github_blob_sha1": "4985e93c8035ed012e1f38123761bc719aed146e",
+      "sha256": "2911a2bc00df82c4f999ffa64fedb0164cb88e96212ffa5972087eb91fd496ee",
+      "bytes": 60809,
+      "rows": 400
+    }
+  ],
+  "validation": {
+    "question_answer_ids_match": true,
+    "unique_ids": 400,
+    "deterministic_generation_subset": "first 32 records in source-file order (simple_0 through simple_31), no content filtering",
+    "first_32_ids": [
+      "simple_0",
+      "simple_1",
+      "simple_2",
+      "simple_3",
+      "simple_4",
+      "simple_5",
+      "simple_6",
+      "simple_7",
+      "simple_8",
+      "simple_9",
+      "simple_10",
+      "simple_11",
+      "simple_12",
+      "simple_13",
+      "simple_14",
+      "simple_15",
+      "simple_16",
+      "simple_17",
+      "simple_18",
+      "simple_19",
+      "simple_20",
+      "simple_21",
+      "simple_22",
+      "simple_23",
+      "simple_24",
+      "simple_25",
+      "simple_26",
+      "simple_27",
+      "simple_28",
+      "simple_29",
+      "simple_30",
+      "simple_31"
+    ]
+  }
+}
