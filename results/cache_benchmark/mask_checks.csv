@@ -1,0 +1,8 @@
+case,expected_valid,independent_jsonschema_valid,sequence_accepted,complete_stop_token_accepted,mask_accept_agreement,rejected_at_token_index,token_count,mask_generation_mean_us,passed,finite_logits_match_independent_bits,allowed_logits_unchanged
+valid_beijing,True,True,True,True,True,,20,18.75835,True,,
+valid_paris,True,True,True,True,True,,19,2.3508947368421054,True,,
+invalid_enum,False,False,False,False,True,10,19,1.6362727272727273,True,,
+invalid_type,False,False,False,False,True,10,19,1.6553636363636364,True,,
+invalid_missing_required,False,False,False,False,True,13,16,1.616142857142857,True,,
+invalid_extra_property,False,False,False,False,True,16,23,1.6324117647058825,True,,
+cpu_kernel_independent_bitmask_unpack,,,,,,,,,True,True,True

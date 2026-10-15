@@ -1,0 +1,1319 @@
+{
+  "scope": "XGrammar-2 section 4.1 single-threaded CPU mechanism replication; independent harness, official library, public BFCL schemas. Not a complete SGLang/GPU throughput or paper-timing replication.",
+  "paper": "https://arxiv.org/abs/2601.04426",
+  "xgrammar_version": "0.2.0",
+  "author_source_commit": "5433fdbea7003eea61cb863768a05fb8da3bf919",
+  "smoke_run": false,
+  "complete_repeat_protocol": true,
+  "seed": 20261015,
+  "repeats": 3,
+  "requests_per_condition": 20,
+  "requested_tool_counts": [
+    10,
+    50,
+    100,
+    200
+  ],
+  "executed_tool_counts": [
+    10,
+    50,
+    100,
+    200
+  ],
+  "omitted_tool_counts_due_to_pool_size_or_unique_combination_limit": [],
+  "tokenizer": "Qwen3-0.6B",
+  "tokenizer_revision_argument": null,
+  "python": "3.12.2",
+  "architecture": "arm64",
+  "torch_version": "2.14.1",
+  "transformers_version": "4.57.6",
+  "max_compiler_threads": 1,
+  "torch_threads": 1,
+  "timing_definition": "perf_counter_ns around compile_structural_tag only; compiler construction, JSON preparation and cache-size inspection excluded",
+  "cache_state_definition": "Fresh separate compiler per repeat/mode/count and cache condition. Request 0 is cold; after_first means subsequent requests. Disabled compiler remains uncached for every request. reset_each_request has a new cache_enabled=True compiler before every request; it retains within-grammar reuse while isolating cross-request reuse. Static cache reuses whole grammars; dynamic cache can only reuse substructures.",
+  "pairing": "Identical workloads across disabled, persistent and reset_each_request controls; execution order cycles through six permutations. Independent seeded workloads per repeat; 95% bootstrap interval resamples repeat means.",
+  "sampling": "Uniformly sample distinct public BFCL tool names, then uniformly select an original schema variant for each sampled name. Different schemas with the same tool name are retained in the pool but never collide inside a request. No tool names are invented.",
+  "input": {
+    "input_file": "bfcl_simple.jsonl",
+    "input_sha256": "fbc37b2ad252bf9af985582e0e07b456173fe627d957491472ea9cef5fb83158",
+    "input_record_count": 400,
+    "distinct_tool_count": 399,
+    "distinct_tool_name_count": 370,
+    "exact_duplicate_tool_count": 1,
+    "same_name_schema_variants": 29,
+    "normalization_counts": {
+      "dict -> object": 406,
+      "float -> number": 77,
+      "tuple -> array": 2,
+      "any -> string": 1
+    },
+    "skipped_records": []
+  },
+  "condition_summaries": [
+    {
+      "mode": "dynamic",
+      "tool_count": 10,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 104.89040419298246,
+      "median_compile_ms": 108.358792,
+      "min_compile_ms": 59.320042,
+      "max_compile_ms": 134.557208,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 10,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 117.53165266666667,
+      "median_compile_ms": 117.5095,
+      "min_compile_ms": 112.22975,
+      "max_compile_ms": 122.855708,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 10,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 23.890462754385965,
+      "median_compile_ms": 23.954833,
+      "min_compile_ms": 22.236834,
+      "max_compile_ms": 26.168125,
+      "mean_cache_bytes": 39797413.2631579
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 10,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 27.336111,
+      "median_compile_ms": 24.510916,
+      "min_compile_ms": 23.4645,
+      "max_compile_ms": 34.032917,
+      "mean_cache_bytes": 3916697.3333333335
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 10,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 23.71679605263158,
+      "median_compile_ms": 23.676542,
+      "min_compile_ms": 22.096166,
+      "max_compile_ms": 25.948334,
+      "mean_cache_bytes": 3603757.8947368423
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 10,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 24.200916666666668,
+      "median_compile_ms": 24.601958,
+      "min_compile_ms": 23.343792,
+      "max_compile_ms": 24.657,
+      "mean_cache_bytes": 3916697.3333333335
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 50,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 541.7345028596491,
+      "median_compile_ms": 550.249542,
+      "min_compile_ms": 450.756292,
+      "max_compile_ms": 612.040416,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 50,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 558.2601253333333,
+      "median_compile_ms": 583.47125,
+      "min_compile_ms": 489.415459,
+      "max_compile_ms": 601.893667,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 50,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 51.939032210526314,
+      "median_compile_ms": 51.829625,
+      "min_compile_ms": 48.472333,
+      "max_compile_ms": 57.020875,
+      "mean_cache_bytes": 570437863.1578947
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 50,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 51.61145833333334,
+      "median_compile_ms": 51.607708,
+      "min_compile_ms": 50.876375,
+      "max_compile_ms": 52.350292,
+      "mean_cache_bytes": 52294676
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 50,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 50.99339477192982,
+      "median_compile_ms": 51.029333,
+      "min_compile_ms": 47.873709,
+      "max_compile_ms": 54.418666,
+      "mean_cache_bytes": 51335744.701754384
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 50,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 51.96022266666667,
+      "median_compile_ms": 51.981667,
+      "min_compile_ms": 50.870542,
+      "max_compile_ms": 53.028459,
+      "mean_cache_bytes": 52294676
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 100,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 1245.4995328947368,
+      "median_compile_ms": 1242.484125,
+      "min_compile_ms": 1085.103167,
+      "max_compile_ms": 1410.438333,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 100,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 1284.5820696666667,
+      "median_compile_ms": 1289.523709,
+      "min_compile_ms": 1240.908792,
+      "max_compile_ms": 1323.313708,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 100,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 92.08488449122807,
+      "median_compile_ms": 91.576625,
+      "min_compile_ms": 86.850625,
+      "max_compile_ms": 98.767417,
+      "mean_cache_bytes": 2111560934.3157895
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 100,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 91.69737500000001,
+      "median_compile_ms": 91.781417,
+      "min_compile_ms": 89.580833,
+      "max_compile_ms": 93.729875,
+      "mean_cache_bytes": 184655901.33333334
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 100,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 90.95759061403508,
+      "median_compile_ms": 90.428333,
+      "min_compile_ms": 86.236708,
+      "max_compile_ms": 109.144625,
+      "mean_cache_bytes": 192481975.22807017
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 100,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 88.53593,
+      "median_compile_ms": 88.683791,
+      "min_compile_ms": 88.052916,
+      "max_compile_ms": 88.871083,
+      "mean_cache_bytes": 184655901.33333334
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 200,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 2884.3039991929822,
+      "median_compile_ms": 2877.522208,
+      "min_compile_ms": 2741.573875,
+      "max_compile_ms": 3118.060083,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 200,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 2886.240805666667,
+      "median_compile_ms": 2882.407083,
+      "min_compile_ms": 2856.905125,
+      "max_compile_ms": 2919.410209,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 200,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 188.39880707017545,
+      "median_compile_ms": 187.929125,
+      "min_compile_ms": 175.807209,
+      "max_compile_ms": 203.78825,
+      "mean_cache_bytes": 7979753199.438597
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 200,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 199.40843066666667,
+      "median_compile_ms": 190.779333,
+      "min_compile_ms": 184.405584,
+      "max_compile_ms": 223.040375,
+      "mean_cache_bytes": 732095082.6666666
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 200,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 187.01868996491228,
+      "median_compile_ms": 186.325458,
+      "min_compile_ms": 177.596792,
+      "max_compile_ms": 206.477792,
+      "mean_cache_bytes": 725119639.0877193
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 200,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 187.19738900000002,
+      "median_compile_ms": 186.789959,
+      "min_compile_ms": 183.44125,
+      "max_compile_ms": 191.360958,
+      "mean_cache_bytes": 732095082.6666666
+    },
+    {
+      "mode": "static",
+      "tool_count": 10,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 118.95362940350877,
+      "median_compile_ms": 118.9635,
+      "min_compile_ms": 109.863625,
+      "max_compile_ms": 139.253625,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "static",
+      "tool_count": 10,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 121.67173633333334,
+      "median_compile_ms": 124.842667,
+      "min_compile_ms": 113.765167,
+      "max_compile_ms": 126.407375,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "static",
+      "tool_count": 10,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 0.052942929824561405,
+      "median_compile_ms": 0.046709,
+      "min_compile_ms": 0.029708,
+      "max_compile_ms": 0.41675,
+      "mean_cache_bytes": 3916697.3333333335
+    },
+    {
+      "mode": "static",
+      "tool_count": 10,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 24.707027333333333,
+      "median_compile_ms": 24.886208,
+      "min_compile_ms": 23.990458,
+      "max_compile_ms": 25.244416,
+      "mean_cache_bytes": 3916697.3333333335
+    },
+    {
+      "mode": "static",
+      "tool_count": 10,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 24.782982403508772,
+      "median_compile_ms": 24.472833,
+      "min_compile_ms": 23.2485,
+      "max_compile_ms": 46.635792,
+      "mean_cache_bytes": 3916697.3333333335
+    },
+    {
+      "mode": "static",
+      "tool_count": 10,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 24.85622233333333,
+      "median_compile_ms": 25.2565,
+      "min_compile_ms": 23.783333,
+      "max_compile_ms": 25.528834,
+      "mean_cache_bytes": 3916697.3333333335
+    },
+    {
+      "mode": "static",
+      "tool_count": 50,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 555.862914508772,
+      "median_compile_ms": 575.56775,
+      "min_compile_ms": 484.207625,
+      "max_compile_ms": 604.550125,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "static",
+      "tool_count": 50,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 551.4779580000001,
+      "median_compile_ms": 564.111291,
+      "min_compile_ms": 487.50875,
+      "max_compile_ms": 602.813833,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "static",
+      "tool_count": 50,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 0.16398171929824562,
+      "median_compile_ms": 0.163667,
+      "min_compile_ms": 0.130458,
+      "max_compile_ms": 0.318375,
+      "mean_cache_bytes": 52294676
+    },
+    {
+      "mode": "static",
+      "tool_count": 50,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 51.129611,
+      "median_compile_ms": 50.907708,
+      "min_compile_ms": 50.489625,
+      "max_compile_ms": 51.9915,
+      "mean_cache_bytes": 52294676
+    },
+    {
+      "mode": "static",
+      "tool_count": 50,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 52.054812122807014,
+      "median_compile_ms": 51.520208,
+      "min_compile_ms": 50.494,
+      "max_compile_ms": 62.6845,
+      "mean_cache_bytes": 52294676
+    },
+    {
+      "mode": "static",
+      "tool_count": 50,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 51.515152666666665,
+      "median_compile_ms": 51.227917,
+      "min_compile_ms": 51.164083,
+      "max_compile_ms": 52.153458,
+      "mean_cache_bytes": 52294676
+    },
+    {
+      "mode": "static",
+      "tool_count": 100,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 1265.254119245614,
+      "median_compile_ms": 1280.381625,
+      "min_compile_ms": 1200.662458,
+      "max_compile_ms": 1323.894125,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "static",
+      "tool_count": 100,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 1251.4907779999999,
+      "median_compile_ms": 1267.934834,
+      "min_compile_ms": 1197.60775,
+      "max_compile_ms": 1288.92975,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "static",
+      "tool_count": 100,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 0.30515212280701753,
+      "median_compile_ms": 0.293292,
+      "min_compile_ms": 0.245833,
+      "max_compile_ms": 0.579708,
+      "mean_cache_bytes": 184655901.33333334
+    },
+    {
+      "mode": "static",
+      "tool_count": 100,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 87.890139,
+      "median_compile_ms": 87.446833,
+      "min_compile_ms": 87.347167,
+      "max_compile_ms": 88.876417,
+      "mean_cache_bytes": 184655901.33333334
+    },
+    {
+      "mode": "static",
+      "tool_count": 100,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 89.71992319298246,
+      "median_compile_ms": 88.315458,
+      "min_compile_ms": 85.697125,
+      "max_compile_ms": 139.906625,
+      "mean_cache_bytes": 184655901.33333334
+    },
+    {
+      "mode": "static",
+      "tool_count": 100,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 87.908944,
+      "median_compile_ms": 87.776541,
+      "min_compile_ms": 87.456125,
+      "max_compile_ms": 88.494166,
+      "mean_cache_bytes": 184655901.33333334
+    },
+    {
+      "mode": "static",
+      "tool_count": 200,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 2916.620056982456,
+      "median_compile_ms": 2909.651458,
+      "min_compile_ms": 2847.389,
+      "max_compile_ms": 3084.450333,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "static",
+      "tool_count": 200,
+      "cache_policy": "disabled",
+      "cache_enabled": false,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 2889.0150696666665,
+      "median_compile_ms": 2907.093,
+      "min_compile_ms": 2850.123875,
+      "max_compile_ms": 2909.828334,
+      "mean_cache_bytes": 0
+    },
+    {
+      "mode": "static",
+      "tool_count": 200,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 0.5583648070175439,
+      "median_compile_ms": 0.548791,
+      "min_compile_ms": 0.495,
+      "max_compile_ms": 0.795417,
+      "mean_cache_bytes": 732095082.6666666
+    },
+    {
+      "mode": "static",
+      "tool_count": 200,
+      "cache_policy": "persistent",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 196.75165266666667,
+      "median_compile_ms": 185.26325,
+      "min_compile_ms": 185.165333,
+      "max_compile_ms": 219.826375,
+      "mean_cache_bytes": 732095082.6666666
+    },
+    {
+      "mode": "static",
+      "tool_count": 200,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "after_first",
+      "observations": 57,
+      "mean_compile_ms": 190.07524057894736,
+      "median_compile_ms": 187.866959,
+      "min_compile_ms": 184.153792,
+      "max_compile_ms": 211.441375,
+      "mean_cache_bytes": 732095082.6666666
+    },
+    {
+      "mode": "static",
+      "tool_count": 200,
+      "cache_policy": "reset_each_request",
+      "cache_enabled": true,
+      "phase": "first_cold",
+      "observations": 3,
+      "mean_compile_ms": 189.72408366666667,
+      "median_compile_ms": 184.6705,
+      "min_compile_ms": 184.247042,
+      "max_compile_ms": 200.254709,
+      "mean_cache_bytes": 732095082.6666666
+    }
+  ],
+  "paired_after_first_speedups": [
+    {
+      "mode": "dynamic",
+      "tool_count": 10,
+      "baseline_policy": "disabled",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 106.77303063157895,
+          "persistent_cache_mean_ms": 23.37474342105263,
+          "speedup": 4.567880327422676
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 104.91755047368422,
+          "persistent_cache_mean_ms": 24.47811842105263,
+          "speedup": 4.2861770937201165
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 102.98063147368421,
+          "persistent_cache_mean_ms": 23.81852642105263,
+          "speedup": 4.323551745109726
+        }
+      ],
+      "mean_speedup": 4.392536388750839,
+      "bootstrap_95pct_interval": [
+        4.2861770937201165,
+        4.567880327422676
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 50,
+      "baseline_policy": "disabled",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 542.1832388947369,
+          "persistent_cache_mean_ms": 51.399164526315786,
+          "speedup": 10.54848349951574
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 548.5383967894737,
+          "persistent_cache_mean_ms": 52.435638210526314,
+          "speedup": 10.461175176072446
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 534.4818728947369,
+          "persistent_cache_mean_ms": 51.98229389473684,
+          "speedup": 10.281998597004058
+        }
+      ],
+      "mean_speedup": 10.430552424197415,
+      "bootstrap_95pct_interval": [
+        10.281998597004058,
+        10.54848349951574
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 100,
+      "baseline_policy": "disabled",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 1256.6601995789474,
+          "persistent_cache_mean_ms": 93.14226752631579,
+          "speedup": 13.491836015522159
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 1239.4250592105263,
+          "persistent_cache_mean_ms": 91.57617536842105,
+          "speedup": 13.534361467097558
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 1240.4133398947367,
+          "persistent_cache_mean_ms": 91.53621057894738,
+          "speedup": 13.551067190234138
+        }
+      ],
+      "mean_speedup": 13.525754890951285,
+      "bootstrap_95pct_interval": [
+        13.491836015522159,
+        13.551067190234138
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 200,
+      "baseline_policy": "disabled",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 2877.9085943157893,
+          "persistent_cache_mean_ms": 185.70193442105264,
+          "speedup": 15.497461581582355
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 2879.468006473684,
+          "persistent_cache_mean_ms": 188.67167978947367,
+          "speedup": 15.26179238816707
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 2895.5353967894735,
+          "persistent_cache_mean_ms": 190.822807,
+          "speedup": 15.173948241886377
+        }
+      ],
+      "mean_speedup": 15.311067403878601,
+      "bootstrap_95pct_interval": [
+        15.173948241886377,
+        15.497461581582355
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "static",
+      "tool_count": 10,
+      "baseline_policy": "disabled",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 119.014375,
+          "persistent_cache_mean_ms": 0.04358763157894737,
+          "speedup": 2730.4620757940747
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 113.68066894736842,
+          "persistent_cache_mean_ms": 0.06815126315789474,
+          "speedup": 1668.0640046830808
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 124.1658442631579,
+          "persistent_cache_mean_ms": 0.04708989473684211,
+          "speedup": 2636.7832197767316
+        }
+      ],
+      "mean_speedup": 2345.103100084629,
+      "bootstrap_95pct_interval": [
+        1668.0640046830808,
+        2730.4620757940747
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "static",
+      "tool_count": 50,
+      "baseline_policy": "disabled",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 498.60432689473686,
+          "persistent_cache_mean_ms": 0.1590108947368421,
+          "speedup": 3135.6614131372
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 593.2322062105263,
+          "persistent_cache_mean_ms": 0.15870842105263158,
+          "speedup": 3737.8747912424637
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 575.7522104210526,
+          "persistent_cache_mean_ms": 0.17422584210526315,
+          "speedup": 3304.6315257480383
+        }
+      ],
+      "mean_speedup": 3392.722576709234,
+      "bootstrap_95pct_interval": [
+        3135.6614131372,
+        3737.8747912424637
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "static",
+      "tool_count": 100,
+      "baseline_policy": "disabled",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 1286.4301031578948,
+          "persistent_cache_mean_ms": 0.28882694736842107,
+          "speedup": 4453.982271664402
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 1217.1528071052633,
+          "persistent_cache_mean_ms": 0.3120767894736842,
+          "speedup": 3900.1708815256166
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 1292.1794474736841,
+          "persistent_cache_mean_ms": 0.31455263157894736,
+          "speedup": 4107.991215929055
+        }
+      ],
+      "mean_speedup": 4154.048123039691,
+      "bootstrap_95pct_interval": [
+        3900.1708815256166,
+        4453.982271664402
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "static",
+      "tool_count": 200,
+      "baseline_policy": "disabled",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 2917.6476799473685,
+          "persistent_cache_mean_ms": 0.5609715263157895,
+          "speedup": 5201.061984570189
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 2919.066782736842,
+          "persistent_cache_mean_ms": 0.5463246315789474,
+          "speedup": 5343.099347910361
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 2913.1457082631578,
+          "persistent_cache_mean_ms": 0.5677982631578947,
+          "speedup": 5130.599893105103
+        }
+      ],
+      "mean_speedup": 5224.920408528551,
+      "bootstrap_95pct_interval": [
+        5130.599893105103,
+        5343.099347910361
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    }
+  ],
+  "cross_request_after_first_speedups": [
+    {
+      "mode": "dynamic",
+      "tool_count": 10,
+      "baseline_policy": "reset_each_request",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 23.159690789473686,
+          "persistent_cache_mean_ms": 23.37474342105263,
+          "speedup": 0.9907997864316552
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 24.361673315789474,
+          "persistent_cache_mean_ms": 24.47811842105263,
+          "speedup": 0.9952428898635033
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 23.62902405263158,
+          "persistent_cache_mean_ms": 23.81852642105263,
+          "speedup": 0.9920439088014464
+        }
+      ],
+      "mean_speedup": 0.992695528365535,
+      "bootstrap_95pct_interval": [
+        0.9907997864316552,
+        0.9952428898635033
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 50,
+      "baseline_policy": "reset_each_request",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 50.38934852631579,
+          "persistent_cache_mean_ms": 51.399164526315786,
+          "speedup": 0.9803534549772112
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 51.65045842105263,
+          "persistent_cache_mean_ms": 52.435638210526314,
+          "speedup": 0.9850258370781867
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 50.94037736842105,
+          "persistent_cache_mean_ms": 51.98229389473684,
+          "speedup": 0.9799563188106771
+        }
+      ],
+      "mean_speedup": 0.9817785369553583,
+      "bootstrap_95pct_interval": [
+        0.9799563188106771,
+        0.9850258370781867
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 100,
+      "baseline_policy": "reset_each_request",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 91.38857447368422,
+          "persistent_cache_mean_ms": 93.14226752631579,
+          "speedup": 0.9811718879172004
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 91.26651978947369,
+          "persistent_cache_mean_ms": 91.57617536842105,
+          "speedup": 0.9966186010968292
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 90.21767757894737,
+          "persistent_cache_mean_ms": 91.53621057894738,
+          "speedup": 0.9855955037721077
+        }
+      ],
+      "mean_speedup": 0.9877953309287124,
+      "bootstrap_95pct_interval": [
+        0.9811718879172004,
+        0.9966186010968292
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "dynamic",
+      "tool_count": 200,
+      "baseline_policy": "reset_each_request",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 185.27291005263157,
+          "persistent_cache_mean_ms": 185.70193442105264,
+          "speedup": 0.9976897151353937
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 186.34776742105262,
+          "persistent_cache_mean_ms": 188.67167978947367,
+          "speedup": 0.9876827705619935
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 189.43539242105263,
+          "persistent_cache_mean_ms": 190.822807,
+          "speedup": 0.9927293042128482
+        }
+      ],
+      "mean_speedup": 0.9927005966367451,
+      "bootstrap_95pct_interval": [
+        0.9876827705619935,
+        0.9976897151353937
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "static",
+      "tool_count": 10,
+      "baseline_policy": "reset_each_request",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 23.80215347368421,
+          "persistent_cache_mean_ms": 0.04358763157894737,
+          "speedup": 546.0758616942276
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 25.653600842105263,
+          "persistent_cache_mean_ms": 0.06815126315789474,
+          "speedup": 376.4215020148678
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 24.893192894736842,
+          "persistent_cache_mean_ms": 0.04708989473684211,
+          "speedup": 528.6313132329207
+        }
+      ],
+      "mean_speedup": 483.709558980672,
+      "bootstrap_95pct_interval": [
+        376.4215020148678,
+        546.0758616942276
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "static",
+      "tool_count": 50,
+      "baseline_policy": "reset_each_request",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 51.90132015789474,
+          "persistent_cache_mean_ms": 0.1590108947368421,
+          "speedup": 326.4010321040564
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 51.855059157894736,
+          "persistent_cache_mean_ms": 0.15870842105263158,
+          "speedup": 326.7316177299649
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 52.40805705263158,
+          "persistent_cache_mean_ms": 0.17422584210526315,
+          "speedup": 300.8053020112129
+        }
+      ],
+      "mean_speedup": 317.9793172817447,
+      "bootstrap_95pct_interval": [
+        300.8053020112129,
+        326.7316177299649
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "static",
+      "tool_count": 100,
+      "baseline_policy": "reset_each_request",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 88.70255915789474,
+          "persistent_cache_mean_ms": 0.28882694736842107,
+          "speedup": 307.1131692042148
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 88.57840115789473,
+          "persistent_cache_mean_ms": 0.3120767894736842,
+          "speedup": 283.83527434796326
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 91.87880926315789,
+          "persistent_cache_mean_ms": 0.31455263157894736,
+          "speedup": 292.0935959173429
+        }
+      ],
+      "mean_speedup": 294.34734648984033,
+      "bootstrap_95pct_interval": [
+        283.83527434796326,
+        307.1131692042148
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    },
+    {
+      "mode": "static",
+      "tool_count": 200,
+      "baseline_policy": "reset_each_request",
+      "target_policy": "persistent",
+      "repeat_speedups": [
+        {
+          "repeat": 0,
+          "baseline_mean_ms": 194.23003736842105,
+          "persistent_cache_mean_ms": 0.5609715263157895,
+          "speedup": 346.2386739021091
+        },
+        {
+          "repeat": 1,
+          "baseline_mean_ms": 185.355715,
+          "persistent_cache_mean_ms": 0.5463246315789474,
+          "speedup": 339.27760947607015
+        },
+        {
+          "repeat": 2,
+          "baseline_mean_ms": 190.63996936842105,
+          "persistent_cache_mean_ms": 0.5677982631578947,
+          "speedup": 335.7529984472803
+        }
+      ],
+      "mean_speedup": 340.42309394181984,
+      "bootstrap_95pct_interval": [
+        335.7529984472803,
+        346.2386739021091
+      ],
+      "interval_unit": "independent workload repeat",
+      "interval_estimation_note": "Reported only for at least three repeats; few-repeat intervals should be interpreted cautiously.",
+      "repeat_count": 3
+    }
+  ],
+  "comparison_definition": "disabled/persistent measures all cache benefits, including within-grammar reuse. reset_each_request/persistent isolates cross-request cache benefits. For dynamic requests, complete grammar hashes never repeat, so these are substructure benefits.",
+  "invariants": {
+    "dynamic_complete_grammars_never_repeated": true,
+    "all_compilations_succeeded": true,
+    "cache_off_memory_is_zero": true,
+    "reset_control_starts_every_request_with_empty_cache": true,
+    "paired_identical_input_hashes": true,
+    "all_expected_observations_present": true,
+    "single_thread_configured": true,
+    "independent_mask_checks_passed": true
+  },
+  "mask_checks": [
+    {
+      "case": "valid_beijing",
+      "expected_valid": true,
+      "independent_jsonschema_valid": true,
+      "sequence_accepted": true,
+      "complete_stop_token_accepted": true,
+      "mask_accept_agreement": true,
+      "rejected_at_token_index": null,
+      "token_count": 20,
+      "mask_generation_mean_us": 18.75835,
+      "passed": true
+    },
+    {
+      "case": "valid_paris",
+      "expected_valid": true,
+      "independent_jsonschema_valid": true,
+      "sequence_accepted": true,
+      "complete_stop_token_accepted": true,
+      "mask_accept_agreement": true,
+      "rejected_at_token_index": null,
+      "token_count": 19,
+      "mask_generation_mean_us": 2.3508947368421054,
+      "passed": true
+    },
+    {
+      "case": "invalid_enum",
+      "expected_valid": false,
+      "independent_jsonschema_valid": false,
+      "sequence_accepted": false,
+      "complete_stop_token_accepted": false,
+      "mask_accept_agreement": true,
+      "rejected_at_token_index": 10,
+      "token_count": 19,
+      "mask_generation_mean_us": 1.6362727272727273,
+      "passed": true
+    },
+    {
+      "case": "invalid_type",
+      "expected_valid": false,
+      "independent_jsonschema_valid": false,
+      "sequence_accepted": false,
+      "complete_stop_token_accepted": false,
+      "mask_accept_agreement": true,
+      "rejected_at_token_index": 10,
+      "token_count": 19,
+      "mask_generation_mean_us": 1.6553636363636364,
+      "passed": true
+    },
+    {
+      "case": "invalid_missing_required",
+      "expected_valid": false,
+      "independent_jsonschema_valid": false,
+      "sequence_accepted": false,
+      "complete_stop_token_accepted": false,
+      "mask_accept_agreement": true,
+      "rejected_at_token_index": 13,
+      "token_count": 16,
+      "mask_generation_mean_us": 1.616142857142857,
+      "passed": true
+    },
+    {
+      "case": "invalid_extra_property",
+      "expected_valid": false,
+      "independent_jsonschema_valid": false,
+      "sequence_accepted": false,
+      "complete_stop_token_accepted": false,
+      "mask_accept_agreement": true,
+      "rejected_at_token_index": 16,
+      "token_count": 23,
+      "mask_generation_mean_us": 1.6324117647058825,
+      "passed": true
+    },
+    {
+      "case": "cpu_kernel_independent_bitmask_unpack",
+      "passed": true,
+      "finite_logits_match_independent_bits": true,
+      "allowed_logits_unchanged": true
+    }
+  ],
+  "wall_seconds": 645.6863059579991,
+  "all_invariants_passed": true
+}
