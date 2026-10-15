@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "reviewed_at_utc": "2026-10-15T15:52:39.090418+00:00",
+  "reviewer": "independent research-candidate agent /root/llm_candidates",
+  "status": "completed",
+  "decision": "supported for public release as a scoped independent core-mechanism replication and local paired-generation study",
+  "review_method": "Read-only review of paper-to-experiment correspondence, pinned source boundaries, runner and validator code, saved raw results, completed notebook and figures; a separate manual standard-library pass recomputed acceptable-argument counts directly from the raw 64 model outputs. No model inference, benchmark rerun, runner helper import or generated-function execution was performed by this reviewer.",
+  "paper": {
+    "url": "https://arxiv.org/abs/2601.04426v4",
+    "doi": "10.1145/3786335.3813124",
+    "publication": "ACM CAIS 2026",
+    "correspondence": "Section 4.1 motivates the static/dynamic compilation workload; section 3.2 motivates TagDispatch fixtures; section 4.3 supplies the Qwen3-0.6B/BFCL setting and Appendix I supplies correctness context. The harness and strict scoring protocol are independently authored adaptations."
+  },
+  "findings": [],
+  "resolved": [
+    {
+      "issue": "Potential conflation of total cache benefit with cross-request benefit",
+      "resolution": "The final README and summary distinguish disabled/persistent from reset_each_request/persistent and report the dynamic negative result."
+    },
+    {
+      "issue": "Potential conflation of formatting improvement with semantic improvement",
+      "resolution": "The final README and figure show strict-tool success separately from the whole-Markdown-fence-relaxed content diagnostic, which remains 27/32 in both modes."
+    },
+    {
+      "issue": "Version mismatch between initial release and final paper revision",
+      "resolution": "The README pins v0.2.0 and explicitly excludes an inference that all August v4 optimizations or configurable JIT are verified."
+    },
+    {
+      "issue": "Incomplete notebook/document release state during the intermediate review",
+      "resolution": "The results placeholder has been replaced, six code cells are saved with ordered execution counts, and the final independent validation includes the notebook."
+    }
+  ],
+  "verified_evidence": {
+    "validation_report_checks": 27167,
+    "validation_report_passed_checks": 27167,
+    "validation_report_all_passed": true,
+    "notebook_checked": true,
+    "notebook_execution_counts": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "compilation_measurements": 1440,
+    "compilation_errors": 0,
+    "model_records": 64,
+    "metrics": {
+      "unconstrained": {
+        "n": 32,
+        "completed": 32,
+        "json_valid": 0,
+        "schema_valid": 0,
+        "argument_exact": 0,
+        "content_argument_exact": 27,
+        "total_tokens": 1310,
+        "total_seconds": 30.064402626012452
+      },
+      "xgrammar": {
+        "n": 32,
+        "completed": 32,
+        "json_valid": 32,
+        "schema_valid": 32,
+        "argument_exact": 27,
+        "content_argument_exact": 27,
+        "total_tokens": 1208,
+        "total_seconds": 29.228793706992292
+      }
+    },
+    "manual_argument_count_recomputation": {
+      "unconstrained_strict": 0,
+      "constrained_strict": 27,
+      "unconstrained_fence_relaxed": 27,
+      "constrained_fence_relaxed": 27,
+      "unconstrained_whole_output_fences": 32,
+      "constrained_whole_output_fences": 0
+    },
+    "same_model_wrong_answer_ids": [
+      "simple_5",
+      "simple_13",
+      "simple_14",
+      "simple_15",
+      "simple_16"
+    ],
+    "wrong_model_answers_are_observed_results_not_replication_validation_failures": true,
+    "cross_request_speedup_observations": [
+      {
+        "mode": "dynamic",
+        "tool_count": 10,
+        "reset_each_request_divided_by_persistent": 0.992695528365535
+      },
+      {
+        "mode": "dynamic",
+        "tool_count": 50,
+        "reset_each_request_divided_by_persistent": 0.9817785369553583
+      },
+      {
+        "mode": "dynamic",
+        "tool_count": 100,
+        "reset_each_request_divided_by_persistent": 0.9877953309287124
+      },
+      {
+        "mode": "dynamic",
+        "tool_count": 200,
+        "reset_each_request_divided_by_persistent": 0.9927005966367451
+      },
+      {
+        "mode": "static",
+        "tool_count": 10,
+        "reset_each_request_divided_by_persistent": 483.709558980672
+      },
+      {
+        "mode": "static",
+        "tool_count": 50,
+        "reset_each_request_divided_by_persistent": 317.9793172817447
+      },
+      {
+        "mode": "static",
+        "tool_count": 100,
+        "reset_each_request_divided_by_persistent": 294.34734648984033
+      },
+      {
+        "mode": "static",
+        "tool_count": 200,
+        "reset_each_request_divided_by_persistent": 340.42309394181984
+      }
+    ],
+    "replay_records_per_run": [
+      64,
+      64
+    ],
+    "replay_deterministic_field_count": 14,
+    "replay_all_deterministic_fields_equal": true,
+    "replay_independent_validation_passed": true,
+    "figures_visually_reviewed": [
+      "results/cache_comparison.png",
+      "results/generation_comparison.png"
+    ]
+  },
+  "scope": {
+    "included": [
+      "Official v0.2.0 library with independent one-thread CPU static/dynamic workload harness",
+      "Same-version cache-lifecycle ablation over fixed public BFCL tool schemas",
+      "TagDispatch positive/negative fixture checks and CPU mask-kernel checks",
+      "Greedy Qwen3-0.6B CPU-mask/Metal paired generation on the first 32 fixed BFCL v3 simple tasks",
+      "Independent provenance, input, token-mask, scoring, summary and notebook checks",
+      "Same-hardware fresh-model-process output/token repeatability"
+    ],
+    "excluded": [
+      "Full paper reproduction or recreation of all original figures and tables",
+      "Old XGrammar v0.1.19 versus XGrammar-2 engine comparison",
+      "Configurable JIT, repetition-compression or parser ablation claims",
+      "SGLang server, CUDA/B200/5090 throughput, batch-size scaling or zero-overhead inference claims",
+      "All CONFETTI tasks, all BFCL categories or official leaderboard score",
+      "Guaranteed semantic correctness or general Agent improvement"
+    ]
+  },
+  "version_limits": {
+    "engine_version": "0.2.0",
+    "engine_revision": "5433fdbea7003eea61cb863768a05fb8da3bf919",
+    "paper_version": "arXiv v4, 2026-08-05; the fixed released implementation predates this revision",
+    "hf_adapter_adjustment": "Batch-size-one subsequent state transitions pass Python integer token IDs, while retaining the author matcher and CPU mask kernel; this compatibility adjustment is disclosed.",
+    "comparison_limits": "Three seeded workload repeats and one Mac are not broad hardware evidence. Thirty-two source-order simple tasks are not representative full-BFCL sampling. New-process output equality does not guarantee cross-machine or cross-dtype equality."
+  },
+  "false_claims": {
+    "detected_in_final_readme": [],
+    "claims_not_supported_by_this_artifact": [
+      "All paper acceleration claims reproduced",
+      "Dynamic cross-request cache acceleration observed on this machine",
+      "Argument-content accuracy improved",
+      "100 percent semantic task correctness",
+      "Official BFCL score or official submission",
+      "Configurable JIT verified",
+      "New peer-reviewed research publication or original-author endorsement"
+    ]
+  },
+  "publication_integrity": "Public release should retain the documented negative findings and scope. Model weights, original BFCL inputs, author source archives and environment are excluded from the public snapshot; pinned downloaders and provenance hashes are supplied. Model answer errors are part of the empirical report, while validation checks confirm truthful bookkeeping.",
+  "reviewed_file_sha256": {
+    "README.md": "ced67c3546407c48ec411b694a5a7a724c53d9ce195ad3bd3d32a54151f5784d",
+    "source_manifest.json": "b8cd47368c944089637e5df46cfa876130274cd59fee6eb43d2103d0feecaca1",
+    "model_manifest.json": "3e84712080844b3164cb475f9a269613d2fbbae14784919ba9d5cf9e0942f8c6",
+    "inputs/data_provenance.json": "819411cd95a556c19f8a3f919e884a78efe94ba91b4727c6fe1608a2f9a9f8e4",
+    "CITATION.cff": "23eb87761e240cf51724c6c4435c2a8825e913b80b65fe18f4ea9f99575c91be",
+    "THIRD_PARTY_NOTICES.txt": "a48437e3c690cb65fe4102d180d57c554358418d8b0ca25a2bbd7a54c4b1f9ad",
+    "requirements.txt": "a9c5c99a33a103cfa77bd3613d6ddab07e7830a8d328e63a71737cc05c039390",
+    "generation_runner.py": "0d38ce494efaafb58e41058d0ae3c94d4de778cd99fe977a56ead61010c44141",
+    "benchmark_runner.py": "3c909ceb5cb8ff28a4c343daa5fd1b9cb6aedcf5802cc74ecf4b15f1f402c3c3",
+    "validate_replication.py": "d08e68558f3f4a89361856b538e422e4f781863db11c93ca70ba1159eef5c15a",
+    "repeat_generation.py": "f43f208ba277098d3e95c124fb2575b5f5c688abbab9125aaed0939265156f26",
+    "setup_sources.py": "6240b398b85caa6cae9dc7555c8434df085df08cbbe85f14b398226a70e75237",
+    "download_model.py": "e316c2986bec186c9d87511c67066881e1a939d8bbbc4e790709f7bc964df2d8",
+    "plot_results.py": "d31f28a2478c9d520cf1f34c3fd542675e2aa74a8b985f9df8a337e125340131",
+    "run_notebook.py": "726dbddda8f9a92f304cc1796f2630eaf7d97fd447b2e7a06429e8c6479ca492",
+    "xgrammar2_reproduction.ipynb": "556fdd07de202559eef406d2aa24c82a2c2dc538d0506d82c1538b3d06803228",
+    "results/generation_records.jsonl": "f96ee483a044c37f8cb2c284fcc0e0dbae9ae9e29bd157670c20f1613c52c848",
+    "results/generation_summary.json": "3e1595921487b239b0e37ba22e5b3b864bd057d83fecdfa46e5c55addd45d810",
+    "results/cache_benchmark/raw.csv": "427707046034c6045339cda58dd9d26e8be0297fcf9ec917ad847547ce765db4",
+    "results/cache_benchmark/summary.json": "3a8d0603ca1d03f643687bb06b94b6eb9372db29ff3f377face040aa745af31b",
+    "results/cache_benchmark/workload_manifest.json": "1879246d51bdf4302d23d4ce71740c587d73281b6d3abd1151a589ff6cea633d",
+    "results/validation_report.json": "18c292e83ef508240241e0b09966cf871d4d276d0f969d145523953ae5656ee1",
+    "results/replay_validation_report.json": "78f7d7a19d8ce4c067ef1896262e23e153fe930c153e3875f7476e57228fae2a",
+    "results/reproducibility_report.json": "39b1c56910b19189f7e93e2aed5ca90ebdfadec8f71b025154b8931b74a4ae52",
+    "results/cache_comparison.png": "19b943429dca63727315ecfa741cc7771f88653d8b850b4475ff08e6bbbc2b57",
+    "results/generation_comparison.png": "9aa3429b0c98fc0d1713ef6812a663cebb8c7725ccc284fc169c744f84afce2d"
+  }
+}

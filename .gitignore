@@ -1,0 +1,15 @@
+.venv/
+.hf_cache/
+.mplconfig/
+.ipynb_checkpoints/
+__pycache__/
+vendor/
+models/
+work_generation_smoke/
+reproducibility_run/
+results/cache_smoke/
+inputs/*.jsonl
+inputs/*.zip
+*.log
+*.pyc
+.DS_Store

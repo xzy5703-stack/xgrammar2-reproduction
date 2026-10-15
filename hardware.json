@@ -1,0 +1,11 @@
+{
+  "cpu": "Apple M3 Pro",
+  "cpu_cores": 12,
+  "memory_gib": 18,
+  "python": "3.12.2",
+  "environment_python": "CPython 3.12.2 arm64 isolated venv",
+  "benchmark_device": "CPU",
+  "generation_device": "Metal MPS",
+  "notebook_display_host": "Existing Anaconda Jupyter; computation uses isolated project Python 3.12",
+  "global_anaconda_modified": false
+}

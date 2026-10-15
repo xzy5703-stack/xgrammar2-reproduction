@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "Please cite the original XGrammar-2 paper when using this replication."
+title: "XGrammar-2 local CPU/Metal core experiment replication"
+type: software
+authors:
+  - name: "xzy5703-stack"
+license: MIT
+repository-code: "https://github.com/xzy5703-stack/xgrammar2-reproduction"
+preferred-citation:
+  type: article
+  title: "XGrammar-2: Dynamic and Efficient Structured Generation Engine for Agentic LLMs"
+  authors:
+    - family-names: Li
+      given-names: Linzhang
+    - family-names: Dong
+      given-names: Yixin
+    - family-names: Wang
+      given-names: Guanjie
+    - family-names: Xu
+      given-names: Ziyi
+    - family-names: Jiang
+      given-names: Alexander
+    - family-names: Chen
+      given-names: Tianqi
+  year: 2026
+  doi: "10.1145/3786335.3813124"
+  url: "https://arxiv.org/abs/2601.04426v4"

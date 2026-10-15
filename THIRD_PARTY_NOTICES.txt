@@ -1,0 +1,21 @@
+Original research and software:
+XGrammar-2 by Linzhang Li, Yixin Dong, Guanjie Wang, Ziyi Xu, Alexander Jiang,
+and Tianqi Chen, ACM CAIS 2026, DOI 10.1145/3786335.3813124.
+Official engine: https://github.com/mlc-ai/xgrammar
+Apache License 2.0; this repository installs the official PyPI package.
+The generation adapter subclasses the official HF adapter, and follows its
+single-sample state transitions with Python integer IDs for current TVM FFI.
+No author engine source or binary is redistributed in this repository.
+
+Qwen3-0.6B: https://huggingface.co/Qwen/Qwen3-0.6B
+Apache License 2.0. Weights and tokenizer assets are downloaded at the fixed
+revision recorded in source_manifest.json, not redistributed here.
+
+BFCL v3: https://github.com/ShishirPatil/gorilla
+Author dataset card: https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard
+Apache License 2.0 according to the author dataset card. Fixed original inputs
+are downloaded locally; only provenance, generated predictions and aggregate
+measurements are published. Preserve upstream attribution and terms.
+
+The repository MIT license applies to original local experiment harnesses,
+download/verification tools and documentation, not to these third-party works.

@@ -1,0 +1,24 @@
+{
+  "paper": "https://arxiv.org/abs/2601.04426",
+  "paper_version": "v4",
+  "doi": "10.1145/3786335.3813124",
+  "engine_version": "0.2.0",
+  "engine_revision": "5433fdbea7003eea61cb863768a05fb8da3bf919",
+  "engine_archive_url": "https://codeload.github.com/mlc-ai/xgrammar/zip/5433fdbea7003eea61cb863768a05fb8da3bf919",
+  "engine_archive_sha256": "b5fc16b0cfedb9350b6529c058c1b736230817804649d977b05a09550a9a40e3",
+  "model_repo": "Qwen/Qwen3-0.6B",
+  "model_revision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "model_license": "apache-2.0",
+  "model_files": [
+    ".gitattributes",
+    "LICENSE",
+    "README.md",
+    "config.json",
+    "generation_config.json",
+    "merges.txt",
+    "model.safetensors",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "vocab.json"
+  ]
+}

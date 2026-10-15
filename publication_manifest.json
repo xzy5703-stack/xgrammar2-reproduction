@@ -1,0 +1,177 @@
+{
+  "repository": "https://github.com/xzy5703-stack/xgrammar2-reproduction",
+  "scope": "independent local core mechanism reproduction; not complete paper",
+  "file_count_excluding_this_manifest": 32,
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "3f272528c52a6a6e31f94addda84b950fd7db6af2c1d796096a9e1319fb03b86",
+      "bytes": 194
+    },
+    {
+      "path": "CITATION.cff",
+      "sha256": "23eb87761e240cf51724c6c4435c2a8825e913b80b65fe18f4ea9f99575c91be",
+      "bytes": 837
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "de457f577ac10b5b368024ac3124b96f72df09f92c74e2d71acb739852f6e58d",
+      "bytes": 1070
+    },
+    {
+      "path": "README.md",
+      "sha256": "ced67c3546407c48ec411b694a5a7a724c53d9ce195ad3bd3d32a54151f5784d",
+      "bytes": 9891
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.txt",
+      "sha256": "a48437e3c690cb65fe4102d180d57c554358418d8b0ca25a2bbd7a54c4b1f9ad",
+      "bytes": 1248
+    },
+    {
+      "path": "benchmark_runner.py",
+      "sha256": "3c909ceb5cb8ff28a4c343daa5fd1b9cb6aedcf5802cc74ecf4b15f1f402c3c3",
+      "bytes": 29335
+    },
+    {
+      "path": "generation_runner.py",
+      "sha256": "0d38ce494efaafb58e41058d0ae3c94d4de778cd99fe977a56ead61010c44141",
+      "bytes": 14501
+    },
+    {
+      "path": "validate_replication.py",
+      "sha256": "d08e68558f3f4a89361856b538e422e4f781863db11c93ca70ba1159eef5c15a",
+      "bytes": 38585
+    },
+    {
+      "path": "plot_results.py",
+      "sha256": "d31f28a2478c9d520cf1f34c3fd542675e2aa74a8b985f9df8a337e125340131",
+      "bytes": 3125
+    },
+    {
+      "path": "download_model.py",
+      "sha256": "e316c2986bec186c9d87511c67066881e1a939d8bbbc4e790709f7bc964df2d8",
+      "bytes": 2417
+    },
+    {
+      "path": "setup_sources.py",
+      "sha256": "6240b398b85caa6cae9dc7555c8434df085df08cbbe85f14b398226a70e75237",
+      "bytes": 2050
+    },
+    {
+      "path": "run_notebook.py",
+      "sha256": "726dbddda8f9a92f304cc1796f2630eaf7d97fd447b2e7a06429e8c6479ca492",
+      "bytes": 1473
+    },
+    {
+      "path": "repeat_generation.py",
+      "sha256": "f43f208ba277098d3e95c124fb2575b5f5c688abbab9125aaed0939265156f26",
+      "bytes": 2793
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "a9c5c99a33a103cfa77bd3613d6ddab07e7830a8d328e63a71737cc05c039390",
+      "bytes": 1430
+    },
+    {
+      "path": "hardware.json",
+      "sha256": "a5f81d42c4d9c1601b7a6e15bf57c25c705b36c10ba068875551df0790e581e7",
+      "bytes": 356
+    },
+    {
+      "path": "source_manifest.json",
+      "sha256": "b8cd47368c944089637e5df46cfa876130274cd59fee6eb43d2103d0feecaca1",
+      "bytes": 786
+    },
+    {
+      "path": "model_manifest.json",
+      "sha256": "3e84712080844b3164cb475f9a269613d2fbbae14784919ba9d5cf9e0942f8c6",
+      "bytes": 1361
+    },
+    {
+      "path": "independent_review.json",
+      "sha256": "4644b5e72db4184df528250dfa5cad9ac72c79bf281ebfe922ba934d030ef556",
+      "bytes": 10530
+    },
+    {
+      "path": "xgrammar2_reproduction.ipynb",
+      "sha256": "556fdd07de202559eef406d2aa24c82a2c2dc538d0506d82c1538b3d06803228",
+      "bytes": 322816
+    },
+    {
+      "path": "inputs/data_provenance.json",
+      "sha256": "819411cd95a556c19f8a3f919e884a78efe94ba91b4727c6fe1608a2f9a9f8e4",
+      "bytes": 3078
+    },
+    {
+      "path": "results/generation_records.jsonl",
+      "sha256": "f96ee483a044c37f8cb2c284fcc0e0dbae9ae9e29bd157670c20f1613c52c848",
+      "bytes": 70818
+    },
+    {
+      "path": "results/generation_summary.json",
+      "sha256": "3e1595921487b239b0e37ba22e5b3b864bd057d83fecdfa46e5c55addd45d810",
+      "bytes": 2356
+    },
+    {
+      "path": "results/validation_report.json",
+      "sha256": "18c292e83ef508240241e0b09966cf871d4d276d0f969d145523953ae5656ee1",
+      "bytes": 918
+    },
+    {
+      "path": "results/replay_validation_report.json",
+      "sha256": "78f7d7a19d8ce4c067ef1896262e23e153fe930c153e3875f7476e57228fae2a",
+      "bytes": 824
+    },
+    {
+      "path": "results/reproducibility_report.json",
+      "sha256": "39b1c56910b19189f7e93e2aed5ca90ebdfadec8f71b025154b8931b74a4ae52",
+      "bytes": 945
+    },
+    {
+      "path": "results/cache_comparison.png",
+      "sha256": "19b943429dca63727315ecfa741cc7771f88653d8b850b4475ff08e6bbbc2b57",
+      "bytes": 125011
+    },
+    {
+      "path": "results/generation_comparison.png",
+      "sha256": "9aa3429b0c98fc0d1713ef6812a663cebb8c7725ccc284fc169c744f84afce2d",
+      "bytes": 56519
+    },
+    {
+      "path": "results/cache_benchmark/raw.csv",
+      "sha256": "427707046034c6045339cda58dd9d26e8be0297fcf9ec917ad847547ce765db4",
+      "bytes": 243200
+    },
+    {
+      "path": "results/cache_benchmark/summary.json",
+      "sha256": "3a8d0603ca1d03f643687bb06b94b6eb9372db29ff3f377face040aa745af31b",
+      "bytes": 41388
+    },
+    {
+      "path": "results/cache_benchmark/workload_manifest.json",
+      "sha256": "1879246d51bdf4302d23d4ce71740c587d73281b6d3abd1151a589ff6cea633d",
+      "bytes": 5091753
+    },
+    {
+      "path": "results/cache_benchmark/condition_summary.csv",
+      "sha256": "cea1d7b987107d9a3276d630d85539589309961bc42a12893db185c7978a4666",
+      "bytes": 5175
+    },
+    {
+      "path": "results/cache_benchmark/mask_checks.csv",
+      "sha256": "a4d4ff6811f901847a345bbc937301b437b301c48045bcb2de8f13b1df914049",
+      "bytes": 759
+    }
+  ],
+  "excluded": [
+    "model weights",
+    "original BFCL files",
+    "vendor source archive",
+    "virtual environment",
+    "smoke outputs",
+    "second-run raw records (hashes and comparison report retained)"
+  ],
+  "validation_checks": 27167,
+  "validation_all_passed": true
+}
